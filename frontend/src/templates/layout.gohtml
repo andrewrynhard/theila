@@ -1,0 +1,43 @@
+{{ define "layout" }}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Theila</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="/frontend/dist/main.css">
+    <script src="/frontend/dist/main.ts"></script>
+  </head>
+
+  <body>
+    <div class="app">
+      <header>
+        <!-- Header content -->
+      </header>
+
+      <nav>
+        <!-- Navigation -->
+        {{ template "sidebar" .}}
+      </nav>
+
+      <main>
+        <!-- Main content -->
+        <div class="flex flex-col h-screen max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+          <div class="py-4">
+          </div>
+
+          {{ .Content }}
+        </div>
+     </main>
+
+      <aside>
+        <!-- Sidebar / Ads -->
+        {{ .Aside }}
+      </aside>
+
+      <footer>
+        <!-- Footer content -->
+      </footer>
+    </div>
+  </body>
+</html>
+{{ end }}

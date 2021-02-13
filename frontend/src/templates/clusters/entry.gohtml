@@ -1,0 +1,64 @@
+{{ define "cluster list entry" }}
+<tr id="cluster-{{ .Namespace }}-{{ .Name }}">
+  <td class="px-6 py-4 whitespace-nowrap">
+    <a href="/clusters/{{ .Namespace }}/{{ .Name }}">
+    <div class="flex items-center">
+      <div class="ml-4 w-full">
+        <div class="text-sm font-medium text-gray-900">
+          {{ .Name }}
+        </div>
+      </div>
+    </div>
+  </td>
+
+  <td class="px-6 py-4 whitespace-nowrap">
+    <div class="flex items-center">
+      <div class="w-full">
+        <div class="text-sm font-medium text-gray-900 text-center">
+          {{ .Namespace }}
+        </div>
+      </div>
+    </div>
+  </td>
+
+  <td class="px-6 py-4 whitespace-nowrap">
+    {{ if .Status.InfrastructureReady }}
+    <!-- Heroicon name: outline/check-circle -->
+    <svg class="fill-green text-gray-400 group-hover:text-gray-300 mx-auto h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+    {{ else }}
+    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+    </span>
+    {{ end }}
+  </td>
+
+  <td class="px-6 py-4 whitespace-nowrap">
+    {{ if .Status.ControlPlaneReady }}
+    <!-- Heroicon name: outline/check-circle -->
+    <svg class="fill-green text-gray-400 group-hover:text-gray-300 mx-auto h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+    {{ else }}
+    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
+    </span>
+    {{ end }}
+  </td>
+
+  <td class="px-6 py-4 whitespace-nowrap">
+    <div class="flex items-center">
+      <div class="w-full">
+        <div class="text-sm font-medium text-gray-900 text-center">
+          {{ .Status.Phase}}
+        </div>
+      </div>
+    </div>
+  </td>
+
+  <td class="px-6 py-4 whitespace-nowrap">
+    <div class="text-center">
+      {{ template "cluster dropdown" . }}
+    </div>
+  </td>
+</tr>
+{{ end }}

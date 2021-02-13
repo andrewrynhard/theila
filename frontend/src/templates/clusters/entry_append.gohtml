@@ -1,0 +1,7 @@
+{{ define "cluster list entry stream" }}
+<turbo-stream action="{{ .Action }}" target="{{ .Target }}">
+    <template>
+      {{ template "cluster list entry" .Cluster }}
+    </template>
+</turbo-stream>
+{{ end }}

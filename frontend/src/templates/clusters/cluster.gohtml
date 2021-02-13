@@ -1,0 +1,6 @@
+{{ define "cluster" }}
+<p class="text-black-600 dark:text-black-300" id="cluster_{{ .Cluster.Namespace }}_{{ .Cluster.Name }}">
+    <strong>Name: </strong>
+    {{ .Cluster.Name }}
+</p>
+{{ end }}

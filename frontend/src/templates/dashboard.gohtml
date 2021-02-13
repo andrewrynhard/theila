@@ -1,0 +1,21 @@
+{{ define "dashboard" }}
+  <div>
+    <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
+      <div class="pb-4">
+        <h3 class="text-lg leading-6 font-medium text-gray-900">
+          Clusters
+        </h3>
+        <turbo-frame id="clusters_summary" src="/clusters/summary"></turbo-frame>
+      </div>
+
+      <div class="pb-4">
+        <h3 class="text-lg leading-6 font-medium text-gray-900">
+          Servers
+        </h3>
+        <turbo-frame id="servers_summary" src="/servers/summary"></turbo-frame>
+      </div>
+
+      {{ template "serverclasses summary" . }}
+    </dl>
+  </div>
+{{ end }}

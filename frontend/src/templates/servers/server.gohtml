@@ -1,0 +1,21 @@
+{{ define "server" }}
+<p class="text-black-600 dark:text-black-300" id="server_{{ .Server.Name }}">
+    <strong>Name: </strong>
+    {{ .Server.Name }}
+</p>
+
+{{ with .ServerBinding }}
+    <p>
+        <strong>Server Class: </strong>
+        {{ .Spec.ServerClassRef.Name }}
+    </p>
+    <p>
+        <strong>Metal Machine: </strong>
+        {{ .Spec.MetalMachineRef.Name }}
+    </p>
+    <p>
+        <strong>Cluster: </strong>
+        {{ index .ObjectMeta.Labels "cluster.x-k8s.io/cluster-name" }}
+    </p>
+{{ end }}
+{{ end }}

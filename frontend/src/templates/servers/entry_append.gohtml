@@ -1,0 +1,7 @@
+{{ define "server list entry stream" }}
+<turbo-stream action="{{ .Action }}" target="{{ .Target }}">
+    <template>
+      {{ template "server list entry" .Server }}
+    </template>
+</turbo-stream>
+{{ end }}
